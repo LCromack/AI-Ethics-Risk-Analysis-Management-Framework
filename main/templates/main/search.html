@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <h3>Search for advice on Ethical Risk</h3>
+    <form method="post" action="/search/" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="chat_gpt_search" value="chat_gpt_search" type="text" class="btn btn-success">Help</button>
+    </form>
+    <h5>Example prompts:</h5>
+    <ul>
+        <li>Provide sources that deal with bias in AI?</li>
+        <li>List sources that cover responsibility when developing AI?</li>
+        <li>How to deal with bias when developing AI?</li>
+    </ul>
+    {% if result %}
+        <h3>Result</h3>
+        <p>{{ result }}</p>
+    {% endif %}
+{% endblock %}

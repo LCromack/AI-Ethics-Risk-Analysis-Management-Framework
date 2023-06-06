@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+View
+{% endblock %}
+
+{% block content %}
+    {% for ai in user.aiframework.all %}
+	    <p><a href="/{{ai.id}}">{{ai.name}}</a></p>
+    {% endfor %}
+{% endblock %}
